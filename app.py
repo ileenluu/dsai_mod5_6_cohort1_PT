@@ -7,12 +7,14 @@ import sqlite3
 import datetime
 
 gemini_api_key = os.getenv("gemini_api_key")
+
 genai.configure(api_key=gemini_api_key)
 model = genai.GenerativeModel("gemini-2.0-flash")
 
 app = Flask(__name__)
 
 first_time = 1
+
 @app.route("/",methods=["GET","POST"])
 def index():
     return(render_template("index.html"))
@@ -33,12 +35,26 @@ def main():
         first_time=0
     return(render_template("main.html"))
 
+@app.route("/gemini", methods=['GET', 'POST'])
+def gemini():
+    return(render_template('gemini.html')) 
+
 @app.route("/gemini_reply",methods=["GET","POST"])
 def gemini_reply():
-    q = request.form.get("q")
-    print(q)
-    r = model.generate_content(q)
-    return(render_template("gemini_reply.html",r=r.text))
+    try:
+        q = request.form.get("q")
+        print(q)
+        r = model.generate_content(q)
+        reply_text = r.candidates[0].content.parts[0].text
+        return render_template("gemini_reply.html", r=reply_text)
+    except Exception as e:
+        print("Error:", e)
+        return f"Error occurred: {e}", 500
+    
+    
+@app.route("/paynow",methods=["GET","POST"])
+def paynow():
+    return(render_template("paynow.html"))
 
 @app.route('/users', methods=['GET', 'POST'])
 def users():
@@ -74,6 +90,13 @@ def delete_log():
     c.close()
     conn.close()
     return(render_template("delete_log.html"))
+
+
+@app.route("/logout",methods=["GET","POST"])
+def logout():
+    global first_time
+    first_time = 1
+    return(render_template("index.html"))
 
 
 if __name__ == "__main__":
