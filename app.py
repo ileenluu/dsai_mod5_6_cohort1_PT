@@ -19,6 +19,7 @@ first_time = 1
 def index():
     return(render_template("index.html"))
 
+
 @app.route("/main",methods=["GET","POST"])
 def main():
     global first_time
@@ -35,9 +36,11 @@ def main():
         first_time=0
     return(render_template("main.html"))
 
+
 @app.route("/gemini", methods=['GET', 'POST'])
 def gemini():
     return(render_template('gemini.html')) 
+
 
 @app.route("/gemini_reply",methods=["GET","POST"])
 def gemini_reply():
@@ -56,6 +59,7 @@ def gemini_reply():
 def paynow():
     return(render_template("paynow.html"))
 
+
 @app.route('/users', methods=['GET', 'POST'])
 def users():
     # read all users
@@ -66,6 +70,7 @@ def users():
     rows = cursor.fetchall()
     conn.close()
     return render_template('users.html', users=rows)
+
 
 @app.route("/user_log",methods=["GET","POST"])
 def user_log():
@@ -80,6 +85,7 @@ def user_log():
     c.close()
     conn.close()
     return(render_template("user_log.html",r=r))
+
 
 @app.route("/delete_log",methods=["GET","POST"])
 def delete_log():
