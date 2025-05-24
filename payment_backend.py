@@ -1,3 +1,4 @@
+import os
 from web3 import Web3
 
 INFURA_URL = os.getenv("INFURA_URL")
