@@ -143,13 +143,20 @@ account = w3.eth.account.from_key(MetaMask_Private)
 
 @app.route("/")
 def show_balance():
-    balance_wei = w3.eth.get_balance(account.address)
-    balance_eth = w3.fromWei(balance_wei, 'ether')
-    return (
-        f"✅ Wallet Address: {account.address}<br>"
-        f"💰 Balance: {balance_eth} SepoliaETH"
+    try:
+        print("🔁 Triggered / route")
+        balance_wei = w3.eth.get_balance(account.address)
+        balance_eth = w3.fromWei(balance_wei, 'ether')
+        print(f"✅ Wallet Address: {account.address}")
+        print(f"💰 Balance: {balance_eth} SepoliaETH")
+        return (
+            f"✅ Wallet Address: {account.address}<br>"
+            f"💰 Balance: {balance_eth} SepoliaETH"
         )
-
+    except Exception as e:
+        print("❌ Error while checking balance:", e)
+        return f"❌ Error: {str(e)}"
+    
 
 @app.route('/users', methods=['GET', 'POST'])
 def users():
