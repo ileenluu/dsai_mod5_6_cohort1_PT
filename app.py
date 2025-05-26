@@ -68,17 +68,17 @@ INFURA_URL = os.getenv("INFURA_URL")
 print(INFURA_URL)
 MetaMask_Private = os.getenv("MetaMask_Private")
 print(MetaMask_Private)
-# w3 = Web3(Web3.HTTPProvider(INFURA_URL))
-# account = w3.eth.account.from_key(MetaMask_Private)
+w3 = Web3(Web3.HTTPProvider(INFURA_URL))
+account = w3.eth.account.from_key(MetaMask_Private)
 
-# @app.route("/")
-# def show_balance():
-#     balance_wei = w3.eth.get_balance(account.address)
-#   balance_eth = w3.fromWei(balance_wei, 'ether')
-#   return (
-#       f"✅ Wallet Address: {account.address}<br>"
-#       f"💰 Balance: {balance_eth} SepoliaETH"
-#    )
+@app.route("/")
+def show_balance():
+    balance_wei = w3.eth.get_balance(account.address)
+    balance_eth = w3.fromWei(balance_wei, 'ether')
+    return (
+        f"✅ Wallet Address: {account.address}<br>"
+        f"💰 Balance: {balance_eth} SepoliaETH"
+        )
 
 @app.route('/users', methods=['GET', 'POST'])
 def users():
