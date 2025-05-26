@@ -4,3 +4,4 @@ google-generativeai
 pysqlite3
 python-dotenv
 web3
+requests
