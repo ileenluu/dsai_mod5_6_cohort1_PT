@@ -7,6 +7,8 @@ import sqlite3
 import datetime
 from web3 import Web3
 from dotenv import load_dotenv
+from sklearn import linear_model
+from sklearn.metrics import mean_squared_error
 
 load_dotenv() # <-- this loads .env file variables
 
@@ -62,6 +64,18 @@ def gemini_reply():
 @app.route("/paynow",methods=["GET","POST"])
 def paynow():
     return(render_template("paynow.html"))
+
+
+@app.route("/prediction", methods=['GET', 'POST'])
+def prediction():
+    return(render_template('prediction.html'))
+
+
+@app.route("/prediction_reply",methods=["GET","POST"])
+def prediction_reply():
+    q = float(request.form.get("q"))
+    print(q)
+    return(render_template("prediction_reply.html",r=90.2 + (-50.6*q)))
 
 
 INFURA_URL = os.getenv("INFURA_URL")
