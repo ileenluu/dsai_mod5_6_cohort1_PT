@@ -7,8 +7,7 @@ import sqlite3
 import datetime
 from web3 import Web3
 from dotenv import load_dotenv
-from sklearn import linear_model
-from sklearn.metrics import mean_squared_error
+
 
 load_dotenv() # <-- this loads .env file variables
 
