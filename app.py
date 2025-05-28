@@ -57,9 +57,20 @@ def gemini():
 @app.route("/gemini_reply",methods=["GET","POST"])
 def gemini_reply():
     try:
+       
+        # Set system prompt for financial question
+        system_prompt = """
+        You are a financial expert.  Answer ONLY questions related to finance, economics, investing, 
+        and financial markets. If the question is not related to finance, 
+        state that you cannot answer it. Answers should be summarised to max 50 words"""
+
         q = request.form.get("q")
+
+        # Construct the prompt with system prompt and user query
+        prompt = f"{system_prompt}\n\nUser Query: {q}"
+
         print("Received question:", q)
-        response = gemini_model.generate_content(q)
+        response = gemini_model.generate_content(prompt)
         print("Gemini Response:", response.text)
         return render_template("gemini_reply.html", r=response.text)
     except Exception as e:
@@ -158,8 +169,8 @@ def show_balance():
         return f"❌ Error: {str(e)}"
     
 
-@app.route('/users', methods=['GET', 'POST'])
-def users():
+@app.route('/user_log', methods=['GET', 'POST'])
+def user_log():
     # read all users
     conn = sqlite3.connect('user.db')
     conn.row_factory = sqlite3.Row  # so we can use column names
@@ -167,22 +178,8 @@ def users():
     cursor.execute('SELECT * FROM users order by timestamp')
     rows = cursor.fetchall()
     conn.close()
-    return render_template('users.html', users=rows)
+    return render_template('user_log.html', users=rows)
 
-
-@app.route("/user_log",methods=["GET","POST"])
-def user_log():
-    #read
-    conn = sqlite3.connect('user.db')
-    c = conn.cursor()
-    c.execute("select * from users")
-    r=""
-    for row in c:
-        print(row)
-        r= r+str(row)
-    c.close()
-    conn.close()
-    return(render_template("user_log.html",r=r))
 
 @app.route("/delete_log",methods=["GET","POST"])
 def delete_log():
@@ -201,4 +198,4 @@ def logout():
     return(render_template("index.html"))
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

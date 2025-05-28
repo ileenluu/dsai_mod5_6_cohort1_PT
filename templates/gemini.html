@@ -5,14 +5,18 @@
 
 <body>
     <div class="container">
+
         <h2>Chatbot by Gemini</h2>
+
         <form action="/gemini_reply" method="post">
-            <input type = "text" name="q">           
+            <textarea name="q" class="chat-input" rows="5" cols="50" placeholder="Type your question here..."></textarea><br>         
             <input type="submit" value="Enter">
         </form>
-            <form action="/main" method="post">     
+        
+        <form action="/main" method="post">     
             <input type="submit" value="Main">
         </form>
+
     </div>
 </body>
 
