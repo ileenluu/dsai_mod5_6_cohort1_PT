@@ -46,7 +46,7 @@ def main():
         c.close()
         conn.close()
         first_time=0
-    return(render_template("main.html"))
+    return(render_template("main copy.html"))
 
 
 @app.route("/gemini",methods=["GET","POST"])

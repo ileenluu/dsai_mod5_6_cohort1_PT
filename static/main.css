@@ -1,0 +1,59 @@
+/* Make body take full height and center contents */
+body {
+    display: flex;
+    justify-content: center;   /* center horizontally */
+    align-items: center;       /* center vertically */
+    height: 100vh;             /* full viewport height */
+    margin: 0;
+    background-color: #f8f8f8; /* optional: light background */
+}
+
+/* Style main wrapper */
+.main-container {
+    width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Title */
+h1 {
+    color: #0c6ca0;
+    margin-bottom: 50px;
+}
+
+/* Flex container for button groups */
+.button-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+/* Each column of buttons */
+.button-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Uniform button style */
+input[type="submit"] {
+    background-color: #00a9e0;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    width: 180px;            /* ✅ Set fixed width for uniform size */
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #00a9e0;
+}

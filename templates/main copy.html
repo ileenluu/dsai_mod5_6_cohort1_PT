@@ -1,0 +1,45 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+    <div class="main-container">
+        <h1>Web Application</h1>
+
+        <div class="button-grid">
+            <!-- Column 1 -->
+            <div class="button-column">
+                <form action="/user_log" method="post">
+                    <input type="submit" value="User Log">
+                </form>
+                <form action="/delete_log" method="post">
+                    <input type="submit" value="Delete User">
+                </form>
+                <form action="/logout" method="post">
+                    <input type="submit" value="Log Out">
+                </form>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="button-column">
+                <form action="/prediction" method="post">
+                    <input type="submit" value="Prediction">
+                </form>
+                <form action="/paynow" method="post">
+                    <input type="submit" value="Transfer Money">
+                </form>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="button-column">
+                <form action="/gemini" method="post">
+                    <input type="submit" value="Chatbot">
+                </form>
+                <form action="/start_telegram" method="post">
+                    <input type="submit" value="Start Telegram">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
