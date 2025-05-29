@@ -91,8 +91,9 @@ def prediction():
 @app.route("/prediction_reply",methods=["GET","POST"])
 def prediction_reply():
     q = float(request.form.get("q"))
-    print(q)
-    return(render_template("prediction_reply.html",r=90.2 + (-50.6*q)))
+    result = 90.23 + (-50.6 * q)
+    rounded_result = round(result, 2)  # Round to 2 decimal places
+    return(render_template("prediction_reply.html",r=rounded_result))
 
 
 @app.route("/start_telegram", methods=['GET', 'POST'])

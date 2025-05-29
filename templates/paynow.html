@@ -11,9 +11,14 @@
         <input type="number" id="amount" placeholder="Amount">
         <button class="btn" onclick="transfer()">Transfer Money</button>
         <button class="btn" onclick="transaction()">View Transaction</button>
-        <p id="view_payer"></p>
-        <p id="view_payee"></p>
-        <p id="view_amount"></p>
+
+		<div id="transaction-display" class="transaction-card" style="display: none;">
+			<h3>Transaction Details</h3>
+			<p><strong>Payer:</strong> <span id="view_payer"></span></p>
+			<p><strong>Payee:</strong> <span id="view_payee"></span></p>
+			<p><strong>Amount:</strong> <span id="view_amount"></span></p>
+		</div>
+
         <form action="/main" method="post">     
             <input type="submit" value="Main">
         </form>
@@ -90,10 +95,11 @@
         }
 
         async function transaction() {
-            const result = await contract.methods.transaction().call();
-            document.getElementById("view_payer").innerText = "Payer : " + result[0];
-            document.getElementById("view_payee").innerText = "Payee : " + result[1];
-            document.getElementById("view_amount").innerText = "Amount : " + result[2];
-        }
+			const result = await contract.methods.transaction().call();
+			document.getElementById("view_payer").innerText = result[0];
+			document.getElementById("view_payee").innerText = result[1];
+			document.getElementById("view_amount").innerText = result[2];
+			document.getElementById("transaction-display").style.display = "block";
+		}
     </script>
 </body>
