@@ -46,7 +46,7 @@ def main():
         c.close()
         conn.close()
         first_time=0
-    return(render_template("main copy.html"))
+    return(render_template("main.html"))
 
 
 @app.route("/gemini",methods=["GET","POST"])
@@ -199,4 +199,4 @@ def logout():
     return(render_template("index.html"))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

@@ -1,31 +1,49 @@
 <head>
-    <meta name ="viewport" content ="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 
 <body>
-    <div class="container">
-        <h2>Web Application</h2>
-        <form action="/gemini" method="post">
-            <input type="submit" value="Chatbot by Gemini">
-        </form>
-        <form action="/paynow" method="post">
-            <input type="submit" value="Transfer Money">
-        </form>
-        <form action="/start_telegram" method="post">
-            <input type="submit" value="Start Telegram">
-        </form>
-        <form action="/prediction" method="post">
-            <input type="submit" value="Prediction">
-        </form>
-        <form action="/user_log" method="post">
-            <input type="submit" value="User log">
-        </form>
-        <form action="/delete_log" method="post">
-            <input type="submit" value="Delete User Log">
-        </form>
-        <form action="/logout" method="post">
-            <input type="submit" value="Log Out">
-        </form>
+    <div class="main-container">
+        <div class="logo-wrapper">
+        <img src="{{ url_for('static', filename='logo_fin_gpt.png') }}" alt="FIN-GPT Logo" class="logo">
+        </div>
+
+        <h1>Web Application</h1>
+
+        <div class="button-grid">
+            <!-- Column 1 -->
+            <div class="button-column">
+                <form action="/user_log" method="post">
+                    <input type="submit" value="User Log">
+                </form>
+                <form action="/delete_log" method="post">
+                    <input type="submit" value="Delete User">
+                </form>
+                <form action="/logout" method="post">
+                    <input type="submit" value="Log Out">
+                </form>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="button-column">
+                <form action="/prediction" method="post">
+                    <input type="submit" value="Prediction">
+                </form>
+                <form action="/paynow" method="post">
+                    <input type="submit" value="Transfer Money">
+                </form>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="button-column">
+                <form action="/gemini" method="post">
+                    <input type="submit" value="Chatbot">
+                </form>
+                <form action="/start_telegram" method="post">
+                    <input type="submit" value="Start Telegram">
+                </form>
+            </div>
+        </div>
     </div>
 </body>
