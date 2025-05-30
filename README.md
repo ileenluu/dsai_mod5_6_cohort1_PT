@@ -17,7 +17,9 @@ This capstone project showcases:
 
 ## File References
 
-1) Database :
-2) Excel File :
-3) Python : [APP.py](https://github.com/ileenluu/dsai_mod5_6_cohort1_PT/blob/main/app.py)
-4) 
+1) Database : [user.db](https://github.com/ileenluu/dsai_mod5_6_cohort1_PT/blob/main/user.db)
+2) Excel File : [DBS_SingDollar.csv](https://github.com/ileenluu/dsai_mod5_6_cohort1_PT/blob/main/static/DBS_SingDollar.csv) 
+3) Python : [app.py](https://github.com/ileenluu/dsai_mod5_6_cohort1_PT/blob/main/app.py)
+4) Templates (HTML files) : [html files](https://github.com/ileenluu/dsai_mod5_6_cohort1_PT/tree/main/templates)
+5) css files : [css files](https://github.com/ileenluu/dsai_mod5_6_cohort1_PT/tree/main/static)
+6) Render : [url](https://dsai-mod5-6-cohort1-pt-yw7k.onrender.com/)
