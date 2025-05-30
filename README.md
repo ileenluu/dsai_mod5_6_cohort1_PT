@@ -23,3 +23,4 @@ This capstone project showcases:
 4) Templates (HTML files) : [html files](https://github.com/ileenluu/dsai_mod5_6_cohort1_PT/tree/main/templates)
 5) css files : [css files](https://github.com/ileenluu/dsai_mod5_6_cohort1_PT/tree/main/static)
 6) Render : [url](https://dsai-mod5-6-cohort1-pt-yw7k.onrender.com/)
+7) [PPT file](https://github.com/ileenluu/dsai_mod5_6_cohort1_PT/blob/main/Submission%20-%20AI%20Deployment.pptx) : The 3 questions were answer in the ppt file. You may need to download to view the information. 
